@@ -74,6 +74,7 @@ def handle_userinput(user_question):
 def main():
     load_dotenv()
     openai_api_key = os.environ.get("OPENAI_API_KEY")
+    
     openai.api_key = openai_api_key 
     st.set_page_config(page_title="Chat with Signa G-Ai",
                        page_icon=":books:")
@@ -90,6 +91,7 @@ def main():
         handle_userinput(user_question)
 
     with st.sidebar:
+        st.write(openai_api_key)
         st.subheader("Your documents")
         pdf_docs = st.file_uploader(
             "Upload your PDFs here and click on 'Process'", accept_multiple_files=True)
